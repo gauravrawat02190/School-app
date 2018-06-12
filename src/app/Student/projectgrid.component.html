@@ -1,0 +1,61 @@
+<div style="padding-top: 20px" class="content table-responsive table-full-width">
+    <div align='center'>
+        <table>
+            <tr>
+                <td>
+                    Sorty By
+                    <select [(ngModel)]="sortby">
+                        <option *ngFor="let c of sortProp" [ngValue]="c">{{c}}</option>
+                    </select>
+                </td>
+                <td>
+                    Order
+                    <select [(ngModel)]="sortop">
+                        <option>Asc</option>
+                        <option>Desc</option>
+                    </select>
+                </td>
+                <td>
+                    <a href='#' (click)='Searchtoggle()'>Show/Hide Filter</a>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <table align='center' item-width="100%" class="table table-hover table-striped" *ngIf="projectGridList!=0">
+        <tr>
+            <th width="40%">Project Name</th>
+            <th width="20%">Roll No.</th>
+            <th width="10%">Class </th>
+            <th width="20%">Team Size</th>
+            <th width="10%">Action</th>
+        </tr>
+        <tr [style.visibility]="searchbool?'visible':'hidden'">
+            <td width="40%" align='center'>
+                <input type="text" (input)='searchText($event.target.value,"ProjectName")'>
+            </td>
+            <td width="20%" align='center'>
+                <input type="text" (input)='searchText($event.target.value,"RollNo")'>
+            </td>
+            <td width="10%" align='center'>
+                <input type="text" (input)='searchText($event.target.value,"ClassNo")'>
+            </td>
+            <td width="20%" align='center'>
+                <input type="text" (input)='searchText($event.target.value,"TeamSize")'>
+            </td>
+            <td width="10%" align='center'>
+            </td>
+        </tr>
+        <tbody *ngFor="let item of projectGridList | SortPipes:sortop:sortby | Search:searchtext:searchprop">
+            <tr>
+                <td width="40%" align='center'>{{item.ProjectName|lowercase}}</td>
+                <td width="20%" align='center'>{{item.RollNo}}</td>
+                <td width="10%" align='center'>{{item.ClassNo}}</td>
+                <td width="20%" align='center'>{{item.TeamSize}}</td>
+                <td width="10%" align='center'>
+                    <a href="#" (click)='DeleteEvent(item)'>X</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div align='center' *ngIf="projectGridList==0">no records found</div>
+</div>

@@ -1,0 +1,44 @@
+<div>
+    <table item-width="50%" align='center'>
+        <tr>
+            <td>Enter Project Name: </td>
+            <td>
+                <input [(ngModel)]='project.ProjectName' type="text">
+            </td>
+        </tr>
+        <tr>
+            <td>Enter Roll no:</td>
+            <td>
+                <input [(ngModel)]='project.RollNo' type="text">
+            </td>
+
+        </tr>
+        <tr>
+            <td>Select Class: </td>
+            <td>
+                <select [(ngModel)]="project.ClassNo">
+                        <option selected>-- Select Class --</option>
+                    <option *ngFor="let c of classMasterList" [ngValue]="c">{{c}}</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+
+            <td>Enter Team Size:</td>
+            <td>
+
+                <input [(ngModel)]='project.TeamSize' type="text">
+
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" align='center'>
+                <button (click)='Submit()'>Submit</button>
+                <button (click)='Clear()'>Cancel</button>
+            </td>
+        </tr>
+    </table>    
+</div>
+<div>
+<project-grid [projectGridList]='projectList' (Delete)='parentDelete($event)'></project-grid>
+</div>

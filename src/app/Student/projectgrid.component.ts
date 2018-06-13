@@ -1,6 +1,7 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { Project } from './Project';
 import { SortPipes } from '../Helpers/sortpipe.component';
+import { StudentChild } from './studentchild';
 
 @Component({
     selector: 'project-grid',

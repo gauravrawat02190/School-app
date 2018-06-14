@@ -34,6 +34,23 @@ export class StudentComponent implements OnInit {
         this.project = new Project();
     }
 
+    FileChangeEvent(fileInput: any) {
+        let FileTxt:string;
+        if (fileInput.target.files && fileInput.target.files[0]) {
+            var filedata = new FormData();
+            FileTxt = fileInput.target.files[0].name;
+            console.log(FileTxt);
+            filedata.append('uploadFile', fileInput.target.files[0], fileInput.target.files[0].name);
+            console.log(filedata);
+            this._httpHelper.postfile('http://localhost:1180/home/UploadFile' , filedata).subscribe((resp) => {
+                // this.AddNotify(resp.Status, resp.Message);
+            },
+                error => {
+                    // this.alertService.error(error);
+                });
+        }
+    }
+
     parentDelete(item) {
         const url = 'http://localhost:1180/home/DeleteProject';
         this._httpHelper.Post(url, item).subscribe((res) => {

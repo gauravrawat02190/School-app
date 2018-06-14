@@ -24,4 +24,18 @@ export class HttpHelper {
         );
     }
 
+    postfile(url: string, data: any): Observable<any> {
+        console.log(url);
+        let headers = new Headers();   
+        headers.append('Content-Type', 'multipart/form-data');
+        // var currentUser = JSON.parse(localStorage.getItem('currentUser'));
+        // headers.append('Authorization', 'Bearer ' + currentUser.token);
+        // let options = new RequestOptions({ headers: headers });  
+        return this._http.post( url, data)
+        .pipe(
+            map((res: Response) => res.json())            
+        );
+        
+    }
+
 }

@@ -27,10 +27,11 @@ export class ProjectGridComponent implements OnInit {
         this.Delete.emit(item);
     }
 
-    Searchtoggle() {
+    Searchtoggle($event) {
         this.searchbool = !this.searchbool;
         this.searchprop = "";
         this.searchtext = "";
+        $event.preventDefault();
     }
 
     searchText(value, prop) {

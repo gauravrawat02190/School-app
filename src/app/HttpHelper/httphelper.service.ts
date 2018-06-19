@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
-import { Http, Request, Response, Headers, RequestOptionsArgs, RequestMethod, RequestOptions, ResponseContentType } from "@angular/http";
+import { Http, Request, Response, Headers, RequestOptionsArgs, RequestMethod, 
+    RequestOptions, ResponseContentType } from "@angular/http";
 import { Observable } from 'rxjs';
 @Injectable()
 export class HttpHelper {

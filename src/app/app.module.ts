@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { StudentComponent } from './Student/student.component';
@@ -11,6 +11,7 @@ import { SortPipes } from './Helpers/sortpipe.component';
 import { SearchPipe } from './Helpers/search.component';
 import { RouterModule } from '@angular/router';
 import { LayoutComponent } from './layout/layout.component';
+import { WebTestComponentComponent } from './web-test-component/web-test-component.component';
 
 @NgModule({
   declarations: [
@@ -20,10 +21,12 @@ import { LayoutComponent } from './layout/layout.component';
     ProjectGridComponent,
     SortPipes,
     SearchPipe,
+    WebTestComponentComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpModule,
     RouterModule.forRoot(
       [
@@ -34,6 +37,10 @@ import { LayoutComponent } from './layout/layout.component';
         {
           path: 'Registeration',
           component: StudentComponent
+        },
+        {
+          path:'WebTest',
+          component:WebTestComponentComponent
         }
       ]
     )

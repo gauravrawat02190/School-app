@@ -6,6 +6,7 @@ import { HttpHelper } from '../HttpHelper/httphelper.service';
         "selector": 'student-form',
         templateUrl: './student.component.html',
         providers: [HttpHelper]
+
     }
 )
 export class StudentComponent implements OnInit {

@@ -1,0 +1,15 @@
+
+<form [formGroup]="formGroup" (ngSubmit)="Submit(formGroup.value)">
+<div>
+  <input type="text"  name="fullname" formControlName="fullname">
+  <br>
+  <select  name="Age" formControlName="Age">
+    <option *ngFor="let c of AgeListMaster" [ngValue]="c">{{c}}</option>
+  </select>
+  <br>
+  <input type="checkbox"  name="Isvalid" formControlName="Isvalid"> Is Valid
+  <br>
+  <input type="submit" name="Submit" value="Submit" [disabled]="!formGroup.valid">
+</div>
+
+</form>

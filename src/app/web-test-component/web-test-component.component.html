@@ -2,6 +2,12 @@
 <form [formGroup]="formGroup" (ngSubmit)="Submit(formGroup.value)">
 <div>
   <input type="text"  name="fullname" formControlName="fullname">
+  <div *ngIf="formGroup.value.fullname.errors">
+      <!-- <div *ngIf="formGroup.value.fullname.errors.required">Full Name is required</div> -->
+      <!-- <div *ngIf="formGroup.controls['fullname'].errors.required">
+          Name is required.
+        </div> -->
+  </div>
   <br>
   <select  name="Age" formControlName="Age">
     <option *ngFor="let c of AgeListMaster" [ngValue]="c">{{c}}</option>

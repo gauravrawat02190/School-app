@@ -58,8 +58,12 @@ export class StudentComponent implements OnInit {
             this.projectList = res;
         },
             error => {
-                console.log(error);
-            }
+                console.log(error);           
+            },
+            ()=>{
+                alert("Entry Deleted");
+            }    
+    
         );
     }
 

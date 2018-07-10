@@ -23,7 +23,8 @@ export class ProjectGridComponent implements OnInit {
     }
 
     @Output() Delete = new EventEmitter();
-    DeleteEvent(item) {
+    DeleteEvent(item,$event) {
+        $event.preventDefault();
         this.Delete.emit(item);
     }
 

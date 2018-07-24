@@ -27,7 +27,7 @@ import { RoutingModule } from './AppModule/routing-module/routing-module.module'
     RoutingModule,
     FormsModule,
     ReactiveFormsModule,
-        HttpModule
+    HttpModule
   ],   
   providers: [],
   bootstrap: [LayoutComponent]

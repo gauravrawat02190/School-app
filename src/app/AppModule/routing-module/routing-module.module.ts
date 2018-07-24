@@ -12,7 +12,7 @@ const routes :Route[]=[
   },
   {
     path: 'Registeration',
-    component: StudentComponent
+    component: StudentComponent    
   },
   {
     path:'WebTest',
